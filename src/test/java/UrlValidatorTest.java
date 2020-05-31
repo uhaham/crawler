@@ -33,4 +33,13 @@ public class UrlValidatorTest {
     return params.toArray(new Object[0][]);
   }
 
+  @Test
+  public void testIsMimeToBlock() {
+    Assert.assertEquals(UrlValidator.isMimeToBlock("aa"), false);
+    Assert.assertEquals(UrlValidator.isMimeToBlock("aa.bb.cc"), false);
+    Assert.assertEquals(UrlValidator.isMimeToBlock("aa.bb.pdf"), true);
+    Assert.assertEquals(UrlValidator.isMimeToBlock("aa.bb.gif"), true);
+    Assert.assertEquals(UrlValidator.isMimeToBlock("aa.bb.apdf"), false);
+    Assert.assertEquals(UrlValidator.isMimeToBlock("aa.bb.agif"), false);
+  }
 }
