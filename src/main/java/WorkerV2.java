@@ -75,11 +75,11 @@ public class WorkerV2 {
         if (domainCounter.get(domain) < pagesPerDomain.get(domain)) {
           WebUtils.write(urlEntity, webPage);
           domainCounter.increase(domain);
-          visitedUrls.add(urlEntity.getUrl());
         }
       } catch (Exception e) {
         log.warn(String.format("[%d] ", Thread.currentThread().getId()), e);
       } finally {
+        visitedUrls.add(urlEntity.getUrl());
         concurrentDomainCounter.decrease(domain);
       }
     } catch (InterruptedException e) {
