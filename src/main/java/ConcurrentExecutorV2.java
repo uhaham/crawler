@@ -1,5 +1,4 @@
 import com.google.common.collect.Maps;
-import com.google.common.collect.Sets;
 import org.apache.log4j.Logger;
 
 import java.io.BufferedReader;
@@ -18,7 +17,7 @@ public class ConcurrentExecutorV2 {
   public void run(final String fileName) {
 
     log.info("Start ConcurrentExecutor");
-    final Collection<String> visitedUrls = Sets.newHashSet();
+    final Collection<String> visitedUrls = new ConcurrentHashMap<String,Object>().newKeySet();
     final EntityCounter domainCounter = new EntityCounter();
     final Map<String, Integer> pagesPerDomain = Maps.newHashMap();
     final EntityCounter concurrentDomainCounter = new EntityCounter();
