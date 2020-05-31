@@ -8,7 +8,7 @@ public class Main {
     }
 
     final String fileName = args[0];
-    final ConcurrentExecutor concurrentExecutor = new ConcurrentExecutor();
+    final ConcurrentExecutorV2 concurrentExecutor = new ConcurrentExecutorV2();
     concurrentExecutor.run(fileName);
 
   }
